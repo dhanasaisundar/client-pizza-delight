@@ -1,0 +1,103 @@
+.userFormContainer {
+  width: 100dvw;
+  height: 100dvh;
+  font-family: "Roboto";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-yellow-200);
+  padding-top: 4rem;
+}
+
+.userFormContainer h1 {
+  color: var(--color-grey-700);
+  margin-bottom: 5px;
+}
+.userFormContainer form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.userFormContainer label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--color-grey-700);
+}
+
+.userFormContainer input {
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.userFormContainer input::placeholder {
+  font-style: italic;
+  font-size: 16px;
+}
+
+/* ****************************************************************************************** */
+.accountContainer {
+  width: 100dvw;
+  height: 100dvh;
+  background-color: var(--color-yellow-200);
+  padding-top: 4.5rem;
+}
+
+.accountFormContainer {
+  width: 100%;
+  padding-top: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--color-yellow-200);
+}
+.accountFormContainer h1 {
+  font-family: "Roboto";
+  color: var(--color-grey-700);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.accountFormContainer p {
+  background-color: var(--color-yellow-50);
+  padding: 12px;
+  border-radius: 45px;
+  font-size: 35px;
+}
+.accountFormContainer form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  width: 50%;
+}
+
+.accountFormContainer form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 70%; */
+  margin-bottom: 30px;
+}
+
+.accountFormContainer form div label {
+  font-family: "Roboto";
+  font-size: 18px;
+  color: var(--color-grey-700);
+  margin-right: 35px;
+  font-weight: 600;
+}
+.accountFormContainer form div input {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 15px;
+  width: 70%;
+  font-size: 18px;
+}

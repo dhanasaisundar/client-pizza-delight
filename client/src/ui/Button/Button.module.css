@@ -1,0 +1,30 @@
+.primary {
+  background-color: var(--color-yellow-400);
+  color: var(--color-grey-900);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: fit-content;
+  padding: 8px;
+  font-weight: 600;
+  align-self: center;
+  margin: 10px;
+  font-family: "Roboto";
+}
+
+.linkBtn {
+  font-family: "Roboto";
+  font-size: 1rem;
+  color: rgb(20, 138, 255);
+  border: none;
+  background: none;
+  outline: none;
+  margin: 0 auto;
+  font-weight: 600;
+}
+
+.linkBtn:hover {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+.pizzasUl {
+  width: 100%;
+  list-style-type: none;
+  background-color: var(--color-yellow-100);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 5rem;
+  font-family: "Roboto";
+  overflow: auto;
+}

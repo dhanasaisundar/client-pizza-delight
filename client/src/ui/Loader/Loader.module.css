@@ -1,0 +1,24 @@
+.loaderContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-yellow-200);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.loader {
+  font-size: 5rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

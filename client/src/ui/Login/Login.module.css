@@ -1,0 +1,71 @@
+.loginContainer {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-yellow-300);
+}
+.loginContainer h1 {
+  color: var(--color-grey-900);
+  margin: 15px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+.formContainer {
+  width: 40%;
+  padding: 15px;
+  background-color: var(--color-yellow-100);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 20px;
+}
+
+.formContainer:hover {
+  box-shadow: 0px 4px 16px 4px #818181;
+}
+
+.formContainer label {
+  font-family: "Roboto";
+  font-size: x-large;
+  color: var(--color-yellow-900);
+}
+
+.formContainer input {
+  outline: none;
+  border: none;
+  padding: 13px;
+  border-radius: 10px;
+  width: 90%;
+}
+
+.formContainer input::placeholder {
+  color: var(--color-yellow-700);
+  font-size: medium;
+}
+
+.formContainer p {
+  background-color: var(--color-red-100);
+  color: var(--color-red-700);
+  font-family: "Roboto";
+  font-weight: 600;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 10px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.createAccountContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Roboto";
+  margin-bottom: 8px;
+}

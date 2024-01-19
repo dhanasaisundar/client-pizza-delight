@@ -1,0 +1,35 @@
+.navContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px;
+  background-color: var(--color-yellow-400);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.navContainer h1 {
+  color: var(--color-grey-700);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.navContainer ul {
+  width: 40%;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navlink {
+  color: var(--color-grey-700);
+  font-weight: 600;
+  font-family: "Roboto";
+  text-decoration: none;
+}
+
+.active {
+  color: var(--color-red-700);
+}

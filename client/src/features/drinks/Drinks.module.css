@@ -1,0 +1,9 @@
+.drinksContainer {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto";
+  flex-wrap: wrap;
+  padding-top: 5rem;
+}

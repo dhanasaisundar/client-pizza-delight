@@ -1,0 +1,115 @@
+.orderMainContainer {
+  padding: 7rem 4rem;
+  margin-bottom: 2rem;
+}
+
+.orderStatusContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem /* 8px */;
+}
+
+.orderStatusHeader {
+  flex-wrap: wrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 1.25rem /* 20px */;
+  line-height: 1.75rem /* 28px */;
+  font-weight: 600;
+}
+
+.orderDelivery {
+  padding-left: 0.75rem /* 12px */;
+  padding-right: 0.75rem /* 12px */;
+  padding-top: 0.25rem /* 4px */;
+  padding-bottom: 0.25rem /* 4px */;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  background-color: var(--color-red-700);
+  border-radius: 9999px;
+  color: var(--color-yellow-50);
+}
+
+.orderStatus {
+  padding-left: 0.75rem /* 12px */;
+  padding-right: 0.75rem /* 12px */;
+  padding-top: 0.25rem /* 4px */;
+  padding-bottom: 0.25rem /* 4px */;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  background-color: var(--color-green-700);
+  border-radius: 9999px;
+  color: var(--color-yellow-50);
+}
+
+.spaceX2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem /* 8px */ * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem /* 8px */ * calc(1 - var(--tw-space-x-reverse)));
+}
+/************************************************************************************/
+.items {
+  list-style-type: none;
+}
+
+.divideY2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
+}
+
+.divideStone400 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(55 25 81 / var(--tw-divide-opacity));
+}
+/************************************************************************************/
+.priceDetails {
+  padding-left: 1.5rem /* 24px */;
+  padding-right: 1.5rem /* 24px */;
+  padding-top: 1rem /* 16px */;
+  padding-bottom: 1rem /* 16px */;
+  border-radius: 0.75rem /* 12px */;
+  font-family: "Roboto";
+}
+
+.spacey5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.25rem /* 20px */ * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.25rem /* 20px */ * var(--tw-space-y-reverse));
+}
+.bgstone300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(214 211 209 / var(--tw-bg-opacity));
+}
+/************************************************************************************/
+.orderItemList {
+  padding-left: 0.5rem /* 8px */;
+  padding-right: 0.5rem /* 8px */;
+  padding-top: 1rem /* 16px */;
+  padding-bottom: 1rem /* 16px */;
+  font-family: "Roboto";
+}
+
+.orderItemListContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orderItemQuantity {
+  font-weight: 700;
+}
+
+.orderItemName {
+  margin-left: 10px;
+  font-size: 1.25rem /* 20px */;
+  line-height: 1.75rem /* 28px */;
+}
+
+.orderTotalPrice {
+  font-weight: 700;
+}
+/************************************************************************************/
