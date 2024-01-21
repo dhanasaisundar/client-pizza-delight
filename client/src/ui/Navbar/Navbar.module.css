@@ -15,8 +15,8 @@
   font-family: "Courier New", Courier, monospace;
 }
 
-.navContainer ul {
-  width: 40%;
+.navContainerul {
+  width: 42%;
   list-style-type: none;
   display: flex;
   justify-content: space-between;
@@ -28,12 +28,41 @@
   font-weight: 600;
   font-family: "Roboto";
   text-decoration: none;
+  font-size: large;
 }
 
-.active {
+.navlink.active {
   color: var(--color-red-700);
 }
-/************************************************************************************/
+
+.hamburger {
+  font-size: 2rem;
+}
+
+.hamBtn {
+  background: none;
+  border: none;
+  outline: none;
+  position: relative;
+}
+.hamNavs {
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-grey-700);
+  font-weight: 600;
+  font-family: "Roboto";
+  text-decoration: none;
+  font-size: large;
+  background-color: var(--color-yellow-400);
+}
+.hamNavLinks {
+  margin: 10px;
+}
+/***************************************************************************/
+
 @media screen and (max-width: 619px) {
   .navContainer h1 {
     font-size: 1.5rem;
