@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { useSelector } from "react-redux";
 import { getUser } from "../../features/user/userSlice";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 function Navbar() {
   const user = useSelector(getUser);
@@ -29,6 +30,7 @@ function Navbar() {
           🤵🏻 {login}
         </NavLink>
       </ul>
+      <GiHamburgerMenu />
     </div>
   );
 }

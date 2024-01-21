@@ -33,3 +33,43 @@
 .active {
   color: var(--color-red-700);
 }
+/************************************************************************************/
+@media screen and (max-width: 619px) {
+  .navContainer h1 {
+    font-size: 1.5rem;
+  }
+  .navContainerul {
+    display: none;
+  }
+  .navlink {
+    display: none;
+    font-size: medium;
+  }
+}
+
+@media screen and (min-width: 620px) {
+  .hamburger {
+    display: none;
+  }
+  .hamBtn {
+    display: none;
+  }
+  .hamNavs {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 620px) and (max-width: 750px) {
+  .navContainer h1 {
+    font-size: 1.2rem;
+  }
+  .navContainerul {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .navContainer h1 {
+    font-size: 1.5rem;
+  }
+}

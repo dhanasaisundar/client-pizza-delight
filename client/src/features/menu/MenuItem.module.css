@@ -38,3 +38,9 @@
   justify-content: space-between;
   align-items: center;
 }
+
+@media (max-width: 999px) {
+  .pizzaItemContainer {
+    width: fit-content;
+  }
+}
