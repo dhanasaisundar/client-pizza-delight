@@ -19,7 +19,7 @@ function Navbar() {
   return (
     <div className={styles.navContainer}>
       <h1>🍕 The Pizza Delight</h1>
-      <ul>
+      <ul className={styles.navContainerul}>
         <NavLink className={styles.navlink} to="/">
           Home
         </NavLink>
@@ -36,6 +36,7 @@ function Navbar() {
           🤵🏻 {login}
         </NavLink>
       </ul>
+
       <button className={styles.hamBtn} onClick={handleHamBtn}>
         <GiHamburgerMenu className={styles.hamburger} />
       </button>
