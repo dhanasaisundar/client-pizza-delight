@@ -16,7 +16,6 @@ export async function createUser(username, password, phoneNo, address, email) {
 
   try {
     const response = await fetch(APIURL, options);
-    // console.log(response);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }

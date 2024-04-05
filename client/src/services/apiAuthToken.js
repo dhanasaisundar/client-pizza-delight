@@ -1,11 +1,11 @@
-async function apiSendOtp(username, email) {
+async function apiSendOtp(email) {
   const apiUrl = "http://localhost:3000/api/users/register";
   const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ username, email }),
+    body: JSON.stringify({ email }),
   };
   try {
     const response = await fetch(apiUrl, options);

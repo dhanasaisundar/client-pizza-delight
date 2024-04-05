@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
-import styles from "../Home/Home.module.css";
 import Navbar from "../Navbar/Navbar";
 
 function Applayout() {
   return (
-    <div className={styles.homeContainer}>
+    <div>
       <Navbar />
-      <main className={styles.mainContainer}>
+      <main>
         <Outlet />
       </main>
     </div>

@@ -53,8 +53,8 @@ function App() {
           },
           style: {
             borderRadius: "12px",
-            backgroundColor: "var(--dark-green-100)",
-            color: "var(--color-grey-0)",
+            backgroundColor: "var(--color-grey-0)",
+            color: "var(--color-grey-900)",
             padding: "12px",
             fontSize: "14px",
             fontWeight: "600",

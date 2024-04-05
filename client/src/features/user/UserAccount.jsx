@@ -1,16 +1,21 @@
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
+import toast from "react-hot-toast";
 
-import { getUser, updateJwtToken } from "./userSlice";
+import { getUser, updateUser, updateJwtToken } from "./userSlice";
 import Button from "../../ui/Button/Button";
 import styles from "./User.module.css";
-import { clearCart } from "../cart/cartSlice";
+import { useState } from "react";
+import apiUpdateUser from "../../services/apiUpdateUser";
 
 function UserAccount() {
   const user = useSelector(getUser);
-  console.log(user);
-  const { name, password, phone_no, address, email } = user;
+  const { userId, username, phoneNo, address, email } = user;
+  const [nameMod, setNameMod] = useState(username);
+  const [phoneNoMod, setPhoneNoMod] = useState(phoneNo);
+  const [addressMod, setAddressMod] = useState(address);
+  const [emailMod, setEmailMod] = useState(email);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -18,9 +23,33 @@ function UserAccount() {
     e.preventDefault();
     Cookies.remove("jwt_token");
     dispatch(updateJwtToken(""));
-    dispatch(clearCart());
+    dispatch(
+      updateUser({
+        userId: null,
+        username: "Guest",
+        phoneNo: 0,
+        address: "",
+        email: "",
+        jwtToken: "",
+      })
+    );
     localStorage.removeItem("user");
     navigate("/");
+  }
+
+  async function handleSaveChanges() {
+    const userInfo = {
+      userId,
+      username: nameMod,
+      phoneNo: phoneNoMod,
+      address: addressMod,
+      email: emailMod,
+    };
+    dispatch(updateUser(userInfo));
+    await apiUpdateUser(userInfo);
+    localStorage.removeItem("user");
+    localStorage.setItem("user", JSON.stringify(userInfo));
+    toast.success("Changes saved");
   }
 
   return (
@@ -30,25 +59,46 @@ function UserAccount() {
       <form onSubmit={handleLogoutbtn}>
         <div>
           <label htmlFor="username">Name</label>
-          <input id="username" defaultValue={name} type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input id="password" defaultValue={password} type="password" />
+          <input
+            id="username"
+            defaultValue={nameMod}
+            type="text"
+            onChange={(e) => setNameMod(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="phoneNo">Phone No</label>
-          <input id="phoneNo" defaultValue={phone_no} type="tel" />
+          <input
+            id="phoneNo"
+            defaultValue={phoneNoMod}
+            type="tel"
+            onChange={(e) => setPhoneNoMod(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="address">Address</label>
-          <input id="address" defaultValue={address} type="text" />
+          <input
+            id="address"
+            defaultValue={addressMod}
+            type="text"
+            onChange={(e) => setAddressMod(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="email">Email</label>
-          <input id="email" defaultValue={email} type="email" />
+          <input
+            id="email"
+            defaultValue={emailMod}
+            type="email"
+            onChange={(e) => setEmailMod(e.target.value)}
+          />
         </div>
-        <Button type="submit">Logout</Button>
+        <div>
+          <Button type="submit">Logout</Button>
+          <Button type="button" onClick={handleSaveChanges}>
+            Save Changes
+          </Button>
+        </div>
       </form>
     </div>
   );

@@ -9,7 +9,6 @@ import { updateUser, updateJwtToken } from "../../features/user/userSlice";
 import Cookies from "js-cookie";
 
 function Login() {
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [errorOne, setErrorOne] = useState("");
   const [errorTwo, setErrorTwo] = useState("");
@@ -24,12 +23,12 @@ function Login() {
 
   async function handleLoginSubmit(e) {
     e.preventDefault();
-    if (username === "" || email === "") {
-      setErrorOne("Invalid Name or Phone Number");
+    if (email === "") {
+      setErrorOne("Invalid Email");
       return null;
     }
     try {
-      const response = await apiSendOtp(username, email);
+      const response = await apiSendOtp(email);
       if (response.ok === true) {
         const data = await response.json();
         setIsOtpSent(true);
@@ -50,10 +49,8 @@ function Login() {
     }
     try {
       const response = await apiVerifyOtp(email, otp);
-      console.log(response);
       if (response.ok === true) {
         const data = await response.json();
-        console.log(data);
         Cookies.set("jwt_token", data.token);
         dispatch(updateUser(data.userInfo));
         dispatch(updateJwtToken(data.token));
@@ -75,16 +72,6 @@ function Login() {
       <form onSubmit={handleLoginSubmit} className={styles.formContainer}>
         <h2>🍕 The Pizza Delight</h2>
         <div className={styles.formInputContianer}>
-          <label htmlFor="username" className={styles.formContainerlabel}>
-            Name
-          </label>
-          <input
-            id="username"
-            type="text"
-            value={username}
-            placeholder="Enter your name here..."
-            onChange={(e) => setUsername(e.target.value)}
-          />
           <label htmlFor="phoneNo" className={styles.formContainerlabel}>
             Email
           </label>

@@ -41,7 +41,6 @@ function Cart() {
       priorityPrice,
       orderPrice: totalCartPrice,
     };
-    console.log(newOrder);
     const orderId = await createOrder(newOrder);
     if (orderId) {
       navigate(`/order/${orderId}`);

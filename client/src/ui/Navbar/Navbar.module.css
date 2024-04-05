@@ -3,11 +3,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 13px;
+  padding: 0.8rem 2rem;
   background-color: var(--color-yellow-400);
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 1;
 }
 
 .navContainer h1 {
