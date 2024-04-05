@@ -33,7 +33,7 @@ function Chef() {
           alt="dough"
         />
         <img
-          src="https://res.cloudinary.com/dq6ad18dk/image/upload/v1711864640/icons8-pizza-64_lafvtu.png"
+          src="https://res.cloudinary.com/dq6ad18dk/image/upload/v1711947707/icons8-food-64_thzxpx.png"
           alt="slice"
         />
         <img

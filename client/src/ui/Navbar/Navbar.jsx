@@ -9,7 +9,7 @@ function Navbar() {
   const [navList, setNavList] = useState(false);
   const user = useSelector(getUser);
   const userJwtToken = user.jwtToken;
-  const login = userJwtToken === "" ? "Login" : user.name;
+  const login = user.name ? user.name : "Login";
   const to = userJwtToken === "" ? "/login" : "/account";
 
   function handleHamBtn() {

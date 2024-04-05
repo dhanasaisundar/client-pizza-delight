@@ -3,9 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   userId: null,
   name: "",
+  phoneNo: 0,
   address: "",
   password: "",
-  phone_no: 0,
   email: "",
   jwtToken: "",
 };
@@ -17,11 +17,15 @@ const userSlice = createSlice({
   name: "user",
   initialState: loadInitialStateFromStorage(),
   reducers: {
-    updateName(state, action) {
+    updateCreds(state, action) {
+      state.name = action.payload.userName;
+      state.phoneNo = action.payload.phoneNo;
+    },
+    updateUser(state, action) {
       state.userId = action.payload.userId;
       state.name = action.payload.name;
       state.password = action.payload.password;
-      state.phone_no = action.payload.phone_no;
+      state.phoneNo = action.payload.phoneNo;
       state.address = action.payload.address;
       state.email = action.payload.email;
     },
@@ -31,7 +35,7 @@ const userSlice = createSlice({
   },
 });
 
-export const { updateName, updateJwtToken } = userSlice.actions;
+export const { updateCreds, updateUser, updateJwtToken } = userSlice.actions;
 export default userSlice.reducer;
 
 export const getUser = (store) => store.user;

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { createUser } from "../../services/apiUser";
-import { updateName } from "./userSlice";
+import { updateUser } from "./userSlice";
 
 import Button from "../../ui/Button/Button";
 import styles from "./User.module.css";
@@ -36,7 +36,7 @@ function CreateUser() {
         address,
         email,
       };
-      dispatch(updateName(userpayload));
+      dispatch(updateUser(userpayload));
       navigate("/login");
     }
   }

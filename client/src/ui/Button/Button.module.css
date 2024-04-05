@@ -1,15 +1,16 @@
 .primary {
-  background-color: var(--color-yellow-400);
   color: var(--color-grey-900);
+  background-color: var(--color-yellow-400);
   border: none;
   border-radius: 8px;
-  cursor: pointer;
-  width: fit-content;
-  padding: 8px;
-  font-weight: 600;
   align-self: center;
+  width: fit-content;
+  padding: 0.7rem 1rem;
   margin: 10px;
+  font-weight: 600;
   font-family: "Roboto";
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .linkBtn {
@@ -24,7 +25,6 @@
 }
 
 .linkBtn:hover {
-  color: blue;
-  text-decoration: underline;
+  color: rgb(3, 90, 231);
   cursor: pointer;
 }

@@ -11,30 +11,59 @@ import CreateUser from "./features/user/RegisterUser";
 import UserAccount from "./features/user/UserAccount";
 import Orders from "./features/order/Orders";
 
+import { Toaster } from "react-hot-toast";
+
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Applayout />}>
-          <Route index element={<Home />} />
-          <Route path="/pizzas" element={<Menu />} />
-          <Route path="/drinks" element={<Drinks />} />
-          <Route
-            path="/cart"
-            element={
-              <ProtectedRoute>
-                <Cart />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/account" element={<UserAccount />} />
-          <Route path="/user" element={<CreateUser />} />
-          <Route path="/order/:orderId" element={<Orders />} />
-          <Route path="/login/createuser" element={<CreateUser />} />
-        </Route>
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Applayout />}>
+            <Route index element={<Home />} />
+            <Route path="/pizzas" element={<Menu />} />
+            <Route path="/drinks" element={<Drinks />} />
+            <Route
+              path="/cart"
+              element={
+                <ProtectedRoute>
+                  <Cart />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/account" element={<UserAccount />} />
+            <Route path="/user" element={<CreateUser />} />
+            <Route path="/order/:orderId" element={<Orders />} />
+            <Route path="/login/createuser" element={<CreateUser />} />
+          </Route>
+        </Routes>
+      </Router>
+      <Toaster
+        position="top-center"
+        gutter={12}
+        containerStyle={{
+          margin: "15px",
+        }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            borderRadius: "12px",
+            backgroundColor: "var(--dark-green-100)",
+            color: "var(--color-grey-0)",
+            padding: "12px",
+            fontSize: "14px",
+            fontWeight: "600",
+            textAlign: "center",
+            fontFamily: "Roboto",
+          },
+        }}
+      />
+    </>
   );
 }
 
