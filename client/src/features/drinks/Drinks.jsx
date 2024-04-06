@@ -9,7 +9,7 @@ function Drinks() {
   useEffect(function () {
     async function fetchDrinks() {
       setIsLoading(true);
-      const APIURL = "https://api-pizza-delight.onrender.com/drinks";
+      const APIURL = "http://localhost:3000/api/drinks";
       const options = {
         method: "GET",
       };

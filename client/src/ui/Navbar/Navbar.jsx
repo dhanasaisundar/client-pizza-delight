@@ -8,7 +8,6 @@ import { useState } from "react";
 function Navbar() {
   const [navList, setNavList] = useState(false);
   const user = useSelector(getUser);
-  console.log(user);
   const userJwtToken = user.jwtToken;
   const login = user.email === "" ? "Login" : user.username;
   const to = userJwtToken === "" ? "/login" : "/account";

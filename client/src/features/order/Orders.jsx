@@ -18,7 +18,7 @@ function Orders() {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const API_URL = `https://api-pizza-delight.onrender.com/orders/${orderId}`;
+      const API_URL = `http://localhost:3000/api/order/${orderId}`;
       const options = {
         method: "GET",
         headers: {
@@ -54,7 +54,6 @@ function Orders() {
   const pizzas = cart?.[0]?.pizzas;
   const drinks = drinksCart?.[0]?.drinks;
   const orderDetails = orderInfo?.[0];
-  console.log(pizzas);
 
   return (
     <>

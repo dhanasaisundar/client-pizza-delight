@@ -11,6 +11,7 @@ import Button from "../../ui/Button/Button";
 import styles from "./cart.module.css";
 import { clearCart, getCart, getDrinks, getTotalCartPrice } from "./cartSlice";
 import { createOrder } from "../../services/apiOrder";
+import { getUser } from "../user/userSlice";
 
 function Cart() {
   const [withPriority, setWithPriority] = useState(false);
@@ -22,6 +23,8 @@ function Cart() {
   const totalCartPrice = useSelector(getTotalCartPrice);
   const priorityPrice = totalCartPrice * (20 / 100);
   const userName = useSelector((store) => store.user.name);
+
+  const user = useSelector(getUser);
 
   function handleClearCart() {
     dispatch(clearCart());
@@ -41,7 +44,12 @@ function Cart() {
       priorityPrice,
       orderPrice: totalCartPrice,
     };
-    const orderId = await createOrder(newOrder);
+    const userInfo = {
+      username: user.username,
+      email: user.email,
+    };
+
+    const orderId = await createOrder(newOrder, userInfo);
     if (orderId) {
       navigate(`/order/${orderId}`);
     }

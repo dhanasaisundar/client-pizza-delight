@@ -1,17 +1,21 @@
-export async function createOrder(newOrder) {
-  const APIURL = `https://api-pizza-delight.onrender.com/order`;
+import Cookie from "js-cookie";
+
+export async function createOrder(newOrder, userInfo) {
+  const token = Cookie.get("jwt_token");
+  const APIURL = `http://localhost:3000/api/order`;
   const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: "Bearer " + token,
     },
-    body: JSON.stringify(
-      newOrder
-    ) /* --->did a mistake by adding it like JSON.stringify({newOrder}) */,
+    body: JSON.stringify({
+      newOrder,
+      userInfo,
+    }) /* --->did a mistake by adding it like JSON.stringify({newOrder}) */,
   };
   try {
     const response = await fetch(APIURL, options);
-    // console.log(response);
     if (response.ok === true) {
       const data = await response.json();
       return data.orderId;
@@ -19,16 +23,18 @@ export async function createOrder(newOrder) {
       throw Error(`Failed to place the order. Status: ${response.status}`);
     }
   } catch (e) {
-    throw Error(`${e.message}:"Can't Place the order"`);
+    throw Error(`Failed to place the order: ${e.message}`);
   }
 }
 
 export async function getOrder(orderId) {
-  const API_URL = `https://api-pizza-delight.onrender.com/orders/${orderId}`;
+  const token = Cookie.get("jwt_token");
+  const API_URL = `http://localhost:3000/api/order/${orderId}`;
   const options = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      authorization: "Bearer " + token,
     },
   };
 
