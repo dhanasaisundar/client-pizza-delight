@@ -64,6 +64,8 @@
   /* For dark mode */
   --image-grayscale: 0;
   --image-opacity: 100%;
+
+  --gradient-tertiary: linear-gradient(to top left, #ffcd0331, #5ec5763a);
 }
 
 * {

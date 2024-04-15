@@ -1,6 +1,6 @@
 .primary {
-  color: var(--color-grey-900);
-  background-color: var(--color-yellow-400);
+  /* color: var(--color-grey-900);
+  background-color: var(--color-yellow-400); */
   border: none;
   border-radius: 8px;
   align-self: center;

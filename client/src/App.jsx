@@ -10,7 +10,8 @@ import Cart from "./features/cart/Cart";
 import CreateUser from "./features/user/RegisterUser";
 import UserAccount from "./features/user/UserAccount";
 import Orders from "./features/order/Orders";
-
+import SuccessfullPayment from "./ui/Payments/SuccessfullPayment";
+import CancelledPayment from "./ui/Payments/CancelledPayment";
 import { Toaster } from "react-hot-toast";
 
 function App() {
@@ -35,6 +36,11 @@ function App() {
             <Route path="/user" element={<CreateUser />} />
             <Route path="/order/:orderId" element={<Orders />} />
             <Route path="/login/createuser" element={<CreateUser />} />
+            <Route
+              path="/payment/successfull"
+              element={<SuccessfullPayment />}
+            />
+            <Route path="/payment/cancel" element={<CancelledPayment />} />
           </Route>
         </Routes>
       </Router>

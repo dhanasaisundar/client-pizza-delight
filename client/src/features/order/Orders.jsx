@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
-import { clearCart } from "../cart/cartSlice";
+import { loadStripe } from "@stripe/stripe-js";
+// import { clearCart } from "../cart/cartSlice";
 import { formatCurrency } from "../../utils/helpers";
 import OrderItem from "./OrderItem";
 import Navbar from "../../ui/Navbar/Navbar";
 
 import styles from "./Order.module.css";
+import Button from "../../ui/Button/Button";
 
 function Orders() {
   const [order, setOrder] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const { orderId } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,9 +44,9 @@ function Orders() {
     };
 
     fetchData();
-    return () => {
-      dispatch(clearCart());
-    };
+    // return () => {
+    //   dispatch(clearCart());
+    // };
   }, [orderId, dispatch]);
 
   if (isLoading) {
@@ -54,6 +56,65 @@ function Orders() {
   const pizzas = cart?.[0]?.pizzas;
   const drinks = drinksCart?.[0]?.drinks;
   const orderDetails = orderInfo?.[0];
+
+  console.log(pizzas);
+  console.log(drinks);
+  console.log(orderDetails);
+  function handleOrderBackBtn() {
+    navigate("/cart");
+  }
+
+  async function makePayment() {
+    try {
+      // Load Stripe instance
+      const stripe = await loadStripe(
+        "pk_test_51P2vquSGAf5U2uIgsJg6Fa7txF8vRato08Dy3YnJqiuDt7Py1QSCsQpKc9lUEv3WZYUyzXH0mtC6veRVsJaPtrg900Wk6rG236"
+      );
+
+      // Construct totalCart array
+      const totalCart = [...pizzas, ...drinks];
+      console.log(totalCart);
+      const customer = {
+        name: "Sundar",
+        address: {
+          line1: "Kurikaranpalayam",
+          line2: "Railway colony post",
+          city: "Erode",
+          state: "Tamilnadu",
+          postal_code: "638002",
+          country: "India",
+        },
+      };
+
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ products: totalCart , customer:customer}),
+      };
+      // Send request to create checkout session
+      const response = await fetch(
+        "http://localhost:3000/api/create-checkout-session",
+        options
+      );
+
+      // Parse response JSON
+      const session = await response.json();
+      // Redirect to Stripe checkout
+      const result = stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+
+      // Handle any errors
+      if (result.error) {
+        console.log(result.error);
+      }
+    } catch (error) {
+      console.error("Error making payment:", error);
+      // Handle error gracefully, display to the user if necessary
+    }
+  }
 
   return (
     <>
@@ -101,6 +162,19 @@ function Orders() {
                   : 0)
             )}
           </p>
+        </div>
+        <div className={styles.payOrderContianer}>
+          <Button type="button" onClick={handleOrderBackBtn}>
+            Back to Cart
+          </Button>
+          <Button
+            type="button"
+            bgColor="#27b348"
+            color="#fff"
+            onClick={makePayment}
+          >
+            Click to Pay
+          </Button>
         </div>
       </div>
     </>
